@@ -1,0 +1,97 @@
+---
+exclude: >
+    (?x)(
+        LICENSE$|
+        \.vql$|
+        \.zip$|
+        \.log$|
+        -ids-*\.json$|
+        bert-master
+    )
+
+repos:
+    - repo: meta
+      hooks:
+          - id: identity
+            verbose: true
+    - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+      rev: 0.2.2 # or other specific tag
+      hooks:
+          - id: yamlfmt
+            verbose: true
+    - repo: https://github.com/jumanjihouse/pre-commit-hooks
+      rev: 3.0.0 # or other specific tag
+      hooks:
+          - id: shellcheck
+            verbose: true
+            args: [--exclude=SC2181] # By default SC1091 is passed. We are overriding & including it
+#            args: ['--exclude=SC2181,SC1091'] # By default SC1091 is passed. We are overriding & including it
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.0.1
+      hooks:
+          - id: check-ast             #  simply checks whether the files parse as valid python
+            verbose: true
+          - id: check-added-large-files
+            verbose: true
+          - id: check-merge-conflict
+            verbose: true
+          - id: check-case-conflict
+            verbose: true
+          - id: check-docstring-first
+            verbose: true
+          - id: check-toml
+            types: [toml]
+            verbose: true
+          - id: pretty-format-json
+            types: [json]
+            verbose: true
+            args: [--indent=2, --autofix]
+          - id: check-json
+            types: [json]
+            verbose: true
+          - id: check-yaml
+            verbose: true
+          - id: debug-statements
+            verbose: true
+          - id: end-of-file-fixer
+            verbose: true
+          - id: trailing-whitespace
+            verbose: true
+          - id: mixed-line-ending
+            verbose: true
+          - id: requirements-txt-fixer
+            verbose: true
+    - repo: local
+      hooks:
+          - id: autopep8
+            name: autopep8
+            entry: autopep8
+            language: system
+            types: [python]
+            args: [-d]
+            verbose: true
+          - id: autoflake
+            name: autoflake
+            entry: autoflake -r -i --remove-all-unused-imports --remove-unused-variables
+            language: system
+            types: [python]
+            verbose: true
+          - id: isort
+            name: isort
+            entry: isort
+            language: system
+            types: [python]
+            verbose: true
+          - id: black
+            name: black
+            entry: black
+            language: system
+            types: [python]
+            verbose: true
+          - id: pyupgrade
+            name: pyupgrade
+            entry: pyupgrade
+            args: [--py37-plus]
+            language: system
+            types: [python]
+            verbose: true
