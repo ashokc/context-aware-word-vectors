@@ -40,7 +40,7 @@ dev = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/ashokc/contextual-words/browse"
+"Homepage" = "https://github.com/ashokc/context-aware-word-vectors"
 
 [tool.pip-tools]
 generate-hashes = true
@@ -93,12 +93,9 @@ legacy_tox_ini = """
 addopts = " --cov src --cov-report xml:coverage-reports/coverage.xml --cov-fail-under 0"
 pythonpath = [ "src" ]
 markers = [
-    "validation: Testing manifest validation (deselect with '-m \"not validation\"')",
-    "revisions: Testing cutting revisions",
-    "properties: Testing environment properties",
-    "deploy_vql: Testing vql deployment",
-    "scheduler_jobs: Testing scheduler deployment",
-    "generate_coverage: The full end-2-end testing to generate coverage metrics"
+    "pt: Test pytorch framework",
+    "tf: Test tensorflow framework",
+    "both: Both - To generate coverage metrics"
 ]
 
 [tool.coverage.run]
@@ -109,8 +106,6 @@ omit = ["**/generate_full_manifest.py"]
 #omit = ["src/context_aware_word_vectors/generate_full_manifest.py"] # Doing this in sonar-project.properties
 
 [tool.coverage.report]
-omit = ["**/generate_full_manifest.py"]
-#omit = ["src/new_sm_deployments/generate_full_manifest.py"] # Doing this in sonar-project.properties
 fail_under = 0
 exclude_lines = [
     'if TYPE_CHECKING:',
@@ -118,7 +113,6 @@ exclude_lines = [
 ]
 
 [tool.mypy]
-#mypy_path = "new_sm_deployments"
 pretty = true
 disallow_any_unimported = true
 disallow_untyped_defs = true

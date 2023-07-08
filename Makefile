@@ -17,7 +17,6 @@ fix:
 
 test: validate
 	venv/dev_${REPO_NAME}/bin/pytest --capture=tee-sys
-	./coverage-reports/fix_report_path.sh
 
 dist:
 	venv/${REPO_NAME}/bin/python -m build
