@@ -11,6 +11,7 @@ dist/
 
 # Unit test / coverage reports
 htmlcov/
+coverage-reports/
 .tox/
 .coverage
 .coverage.*

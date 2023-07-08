@@ -1,5 +1,5 @@
 import json
-from typing import Any, Union
+from typing import Any
 
 import numpy as np
 from transformers import AutoTokenizer, pipeline
@@ -35,15 +35,12 @@ class ContextAwareWordVectors:
     def manhattan_distance(self, v1: Any, v2: Any) -> Any:
         return round(np.linalg.norm(v1 - v2, ord=1), 3)
 
-    def run(
-        self, samples: dict[str, dict[str, str]]
-    ) -> dict[str, dict[str, Union[str, list[float]]]]:
-        test_word_vector: dict[str, list[float]]
-        results: dict[str, dict[str, Union[str, list[float]]]] = {}
+    def run(self, samples: dict[str, dict[str, str]]) -> dict[str, dict[str, Any]]:
+        test_word_vector: dict[str, Any]
+        results: dict[str, dict[str, Any]] = {}
 
         for test_word, sample in samples.items():
             results[test_word] = {}
-            results["sentences"] = sample
             test_word_vector = {}
             for index, sentence in sample.items():
                 tokens = self.tokenizer.tokenize(sentence)
@@ -56,6 +53,7 @@ class ContextAwareWordVectors:
                 ]  # 0 is '[CLS]'
                 magnitude = np.linalg.norm(test_word_vector[index])
                 test_word_vector[index] = test_word_vector[index] / magnitude
+            results[test_word]["sentences"] = sample
             results[test_word]["dot_product"] = [
                 self.dot_product(test_word_vector["1"], test_word_vector["2"]),
                 self.dot_product(test_word_vector["2"], test_word_vector["3"]),

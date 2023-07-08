@@ -95,15 +95,13 @@ pythonpath = [ "src" ]
 markers = [
     "pt: Test pytorch framework",
     "tf: Test tensorflow framework",
-    "both: Both - To generate coverage metrics"
+    "all: All - To generate coverage metrics"
 ]
 
 [tool.coverage.run]
 #omit = ["tests/*.py", "config.py", "exceptions.py", "proxy.py"]
 #omit = ["tests/*.py", "src/context_aware_word_vectors/generate_full_manifest.py"]
 #Remove tests/*. The config above for pytest specifies "src" for cov & we have "src" as the source in sonar-project.properties
-omit = ["**/generate_full_manifest.py"]
-#omit = ["src/context_aware_word_vectors/generate_full_manifest.py"] # Doing this in sonar-project.properties
 
 [tool.coverage.report]
 fail_under = 0

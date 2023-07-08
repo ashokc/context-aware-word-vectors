@@ -16,7 +16,7 @@ fix:
 	venv/dev_${REPO_NAME}/bin/pre-commit run --all-files
 
 test: validate
-	venv/dev_${REPO_NAME}/bin/pytest --capture=tee-sys
+	venv/dev_${REPO_NAME}/bin/pytest -m all --capture=tee-sys
 
 dist:
 	venv/${REPO_NAME}/bin/python -m build
