@@ -1,0 +1,23 @@
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:1: error:
+Skipping analyzing "transformers": module is installed, but missing library
+stubs or py.typed marker  [import]
+    from transformers import pipeline, AutoTokenizer
+    ^
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:1: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:36: error:
+Incompatible types in assignment (expression has type "dict[str, str]", target
+has type "dict[str, str | list[float]]")  [assignment]
+                results['sentences'] = sample
+                                       ^~~~~~
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:44: error:
+No overload variant of "__call__" of "_FloatOp" matches argument type
+"list[float]"  [call-overload]
+                    test_word_vector[index] = test_word_vector[index] / ma...
+                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~...
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:44: note: Possible overload variants:
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:44: note:     def __call__(self, bool, /) -> floating[Any]
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:44: note:     def __call__(self, int, /) -> floating[Any]
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:44: note:     def __call__(self, float, /) -> floating[Any]
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:44: note:     def __call__(self, complex, /) -> complexfloating[Any, Any]
+/home/ashokc/git-repos/context-aware-word-vectors/src/context_aware_word_vectors/context_aware_word_vectors.py:44: note:     def [_NBit2 <: NBitBase] __call__(self, integer[_NBit2] | floating[_NBit2], /) -> floating[Any | _NBit2]
+Found 3 errors in 1 file (checked 2 source files)

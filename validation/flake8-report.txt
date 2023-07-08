@@ -1,0 +1,29 @@
+src/context_aware_word_vectors/context_aware_word_vectors.py:8: [E302] expected 2 blank lines, found 1
+src/context_aware_word_vectors/context_aware_word_vectors.py:14: [E302] expected 2 blank lines, found 1
+src/context_aware_word_vectors/context_aware_word_vectors.py:21: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:22: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:24: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:25: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:27: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:28: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:30: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:30: [E231] missing whitespace after ','
+src/context_aware_word_vectors/context_aware_word_vectors.py:32: [E231] missing whitespace after ','
+src/context_aware_word_vectors/context_aware_word_vectors.py:41: [E261] at least two spaces before inline comment
+src/context_aware_word_vectors/context_aware_word_vectors.py:42: [E231] missing whitespace after ','
+src/context_aware_word_vectors/context_aware_word_vectors.py:42: [E226] missing whitespace around arithmetic operator
+src/context_aware_word_vectors/context_aware_word_vectors.py:42: [E231] missing whitespace after ','
+src/context_aware_word_vectors/context_aware_word_vectors.py:45: [E231] missing whitespace after ','
+src/context_aware_word_vectors/context_aware_word_vectors.py:46: [E231] missing whitespace after ','
+src/context_aware_word_vectors/context_aware_word_vectors.py:47: [E231] missing whitespace after ','
+src/context_aware_word_vectors/context_aware_word_vectors.py:52: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:56: [E211] whitespace before '('
+src/context_aware_word_vectors/context_aware_word_vectors.py:57: [W391] blank line at end of file
+tests/conftest.py:4: [E265] block comment should start with '# '
+tests/conftest.py:6: [E302] expected 2 blank lines, found 1
+tests/conftest.py:8: [E211] whitespace before '('
+tests/test_samples.py:5: [E302] expected 2 blank lines, found 1
+tests/test_samples.py:10: [W291] trailing whitespace
+tests/test_samples.py:18: [E302] expected 2 blank lines, found 1
+tests/test_samples.py:23: [W291] trailing whitespace
+tests/test_samples.py:30: [W391] blank line at end of file

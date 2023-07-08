@@ -17,11 +17,12 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "tensorflow"
+  "transformers","jsonlines", "torch", "tensorflow"
 ]
 
 [project.optional-dependencies]
 dev = [
+  "johnnydep",
   "pytest",
   "pytest-cov",
   "coverage",

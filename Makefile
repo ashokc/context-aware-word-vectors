@@ -8,7 +8,7 @@ PACKAGE_NAME := context_aware_word_vectors
 # Generates coverage-reports/coverage.xml
 validate:
 	venv/dev_${REPO_NAME}/bin/pylint src/${PACKAGE_NAME} -r n --output-format=parseable --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" --exit-zero --ignore-paths="src/${PACKAGE_NAME}/k" src/${PACKAGE_NAME} tests | tee validation/pylint-report.txt
-	venv/dev_${REPO_NAME}/bin/flake8 --format=pylint --exit-zero --ignore=E501,E800,W503,G001,E305,G004 --max-line-length=89 --extend-exclude="src/${PACKAGE_NAME}/bert_master" src/${PACKAGE_NAME} tests | tee validation/flake8-report.txt
+	venv/dev_${REPO_NAME}/bin/flake8 --format=pylint --exit-zero --ignore=E501,E800,W503,G001,E305,G004 --max-line-length=89 --extend-exclude="src/${PACKAGE_NAME}/k" src/${PACKAGE_NAME} tests | tee validation/flake8-report.txt
 	venv/dev_${REPO_NAME}/bin/mypy --exclude src/${PACKAGE_NAME}/k src > validation/mypy.log || (exit 0)
 	venv/dev_${REPO_NAME}/bin/python validation/score-with-pylint.py -p src/${PACKAGE_NAME} | grep 'Your\|Threshold'
 
