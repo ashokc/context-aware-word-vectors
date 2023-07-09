@@ -45,20 +45,17 @@ venv/${REPO_NAME}: ## create virtual environment if venv is not present
 	venv/${REPO_NAME}/bin/python -m pip install pip-tools
 
 requirements/requirements.txt: venv/${REPO_NAME} pyproject.toml  # generate requirements for release
-	venv/${REPO_NAME}/bin/pip-compile -v --resolver=backtracking -o requirements/requirements.txt pyproject.toml
-	venv/${REPO_NAME}/bin/pip-sync -v requirements/requirements.txt
-	venv/${REPO_NAME}/bin/pip freeze > requirements/prd-installed-requirements.txt
-	grep -v '#' requirements/requirements.txt > requirements/prd-original-requirements.txt
+	venv/${REPO_NAME}/bin/pip-compile -v --resolver=backtracking -o requirements/requirements-pip-compile.txt pyproject.toml
+	venv/${REPO_NAME}/bin/pip-sync -v requirements/requirements-pip-compile.txt
+	venv/${REPO_NAME}/bin/pip freeze > requirements/requirements.txt
 
 requirements/test-requirements.txt: venv/test_${REPO_NAME} pyproject.toml requirements/requirements.txt ## generate requirements for test
-	venv/test_${REPO_NAME}/bin/pip-compile -v --resolver=backtracking --extra test -o requirements/test-requirements.txt pyproject.toml
-	venv/test_${REPO_NAME}/bin/pip-sync --force requirements/test-requirements.txt requirements/requirements.txt
-	venv/test_${REPO_NAME}/bin/pip freeze > requirements/test-installed-requirements.txt
-	grep -v '#' requirements/test-requirements.txt > requirements/test-original-requirements.txt
+	venv/test_${REPO_NAME}/bin/pip-compile -v --resolver=backtracking --extra test -o requirements/test-requirements-pip-compile.txt pyproject.toml
+	venv/test_${REPO_NAME}/bin/pip-sync --force requirements/test-requirements-pip-compile.txt requirements/requirements.txt
+	venv/test_${REPO_NAME}/bin/pip freeze > requirements/test-requirements.txt
 
 requirements/dev-requirements.txt: venv/dev_${REPO_NAME} pyproject.toml requirements/test-requirements.txt requirements/requirements.txt ## generate requirements for dev
-	venv/dev_${REPO_NAME}/bin/pip-compile -v --resolver=backtracking --extra dev -o requirements/dev-requirements.txt pyproject.toml
-	venv/dev_${REPO_NAME}/bin/pip-sync --force requirements/dev-requirements.txt requirements/test-requirements.txt requirements/requirements.txt
+	venv/dev_${REPO_NAME}/bin/pip-compile -v --resolver=backtracking --extra dev -o requirements/dev-requirements-pip-compile.txt pyproject.toml
+	venv/dev_${REPO_NAME}/bin/pip-sync --force requirements/dev-requirements-pip-compile.txt requirements/test-requirements.txt requirements/requirements.txt
 	venv/dev_${REPO_NAME}/bin/pre-commit install  # Installs the git-hooks
-	venv/dev_${REPO_NAME}/bin/pip freeze > requirements/dev-installed-requirements.txt
-	grep -v '#' requirements/dev-requirements.txt > requirements/dev-original-requirements.txt
+	venv/dev_${REPO_NAME}/bin/pip freeze > requirements/dev-requirements.txt
