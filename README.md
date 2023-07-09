@@ -45,7 +45,7 @@ Word vectors have evolved over the years to know the difference between "record 
 
 You wil see  output like:
 
-;;;
+```json
 {
   "arms": {
     "sentences": {
@@ -70,4 +70,4 @@ You wil see  output like:
     ]
   }
 }
-;;;
+```
