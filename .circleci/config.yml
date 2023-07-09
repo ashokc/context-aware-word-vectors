@@ -10,11 +10,14 @@ jobs:
 
             - run:
                   name: install dependencies
-                  command: pip install -r requirements/dev-requirements.txt
+                  command: pip install -r requirements/test-installed-requirements.txt
 
             - run:
                   name: run tests
-                  command: python -m pytest -m all
+                  command: python -m pytest -m all --capture=tee-sys
+
+            - store_artifacts:
+                  path: coverage-reports
 
 workflows:
     test_my_app:

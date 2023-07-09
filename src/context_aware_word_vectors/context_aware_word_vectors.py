@@ -4,7 +4,7 @@ from typing import Any
 import numpy as np
 from transformers import AutoTokenizer, pipeline
 
-__all__ = ["ContextAwareWordVectors"]
+__all__ = ["ContextAwareWordVectors", "print_results"]
 
 
 class NumpyFloatValuesEncoder(json.JSONEncoder):
@@ -12,6 +12,14 @@ class NumpyFloatValuesEncoder(json.JSONEncoder):
         if isinstance(obj, np.float32):
             return round(float(obj), 3)
         return json.JSONEncoder.default(self, obj)
+
+
+def print_results():
+    with open("sentences.json", encoding="utf-8") as fp:
+        samples = json.load(fp)
+        context_aware_word_vectors = ContextAwareWordVectors(model="bert-base-uncased")
+        results = context_aware_word_vectors.run(samples)
+        print(json.dumps(results, indent=2, cls=NumpyFloatValuesEncoder))
 
 
 class ContextAwareWordVectors:
@@ -73,8 +81,4 @@ class ContextAwareWordVectors:
 
 
 if __name__ == "__main__":
-    with open("sentences.json", encoding="utf-8") as fp:
-        samples = json.load(fp)
-        context_aware_word_vectors = ContextAwareWordVectors(model="bert-base-uncased")
-        results = context_aware_word_vectors.run(samples)
-        print(json.dumps(results, indent=2, cls=NumpyFloatValuesEncoder))
+    print_results()

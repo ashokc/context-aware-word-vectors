@@ -4,6 +4,7 @@ import pytest
 
 from context_aware_word_vectors.context_aware_word_vectors import (
     ContextAwareWordVectors,
+    print_results,
 )
 
 measures1 = {"dot_product"}
@@ -38,3 +39,8 @@ def test_with_tensorflow(samples: dict[str, dict[str, str]]) -> None:
     )
     results = context_aware_word_vectors.run(samples)
     compare_values(results)
+
+
+@pytest.mark.all
+def test_main() -> None:
+    print_results()

@@ -1,4 +1,5 @@
 [build-system]
+#requires = ["setuptools==59.6.0"]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
@@ -17,15 +18,18 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "transformers","jsonlines", "torch", "tensorflow"
+  "pip-tools", "transformers","jsonlines", "torch", "tensorflow"
 ]
 
 [project.optional-dependencies]
-dev = [
-  "johnnydep",
+test = [
   "pytest",
   "pytest-cov",
   "coverage",
+]
+
+dev = [
+  "johnnydep",
   "autopep8",
   "autoflake",
   "black",
@@ -43,7 +47,7 @@ dev = [
 "Homepage" = "https://github.com/ashokc/context-aware-word-vectors"
 
 [tool.pip-tools]
-generate-hashes = true
+generate-hashes = false
 
 
 [tool.autopep8]
@@ -90,7 +94,7 @@ legacy_tox_ini = """
 """
 
 [tool.pytest.ini_options]
-addopts = " --cov src --cov-report xml:coverage-reports/coverage.xml --cov-fail-under 0"
+addopts = " --cov src --cov-report xml:coverage-reports/coverage.xml --cov-report html:coverage-reports/cov-html --cov-fail-under 0"
 pythonpath = [ "src" ]
 markers = [
     "pt: Test pytorch framework",
@@ -99,9 +103,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-#omit = ["tests/*.py", "config.py", "exceptions.py", "proxy.py"]
-#omit = ["tests/*.py", "src/context_aware_word_vectors/generate_full_manifest.py"]
-#Remove tests/*. The config above for pytest specifies "src" for cov & we have "src" as the source in sonar-project.properties
+omit = []
 
 [tool.coverage.report]
 fail_under = 0

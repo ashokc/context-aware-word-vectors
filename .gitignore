@@ -4,9 +4,8 @@ __pycache__/
 *$py.class
 venv/
 dist/
-*.k*
-*.k*
-*/k/*
+*.bak*
+*/bak/*
 *.egg-info
 
 # Unit test / coverage reports
