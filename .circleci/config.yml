@@ -7,12 +7,9 @@ jobs:
             - image: circleci/python:3.10
         steps:
             - checkout
-            - python/install-packages:
-                  pkg-manager: pip
-                  pip-dependency-file: requirements/dev-requirements.txt
             - run:
-                  name: Run tests
-                  command: python -m pytest -m all - .
+                  - pip install -r requirements/dev-requirements.txt
+                  - python -m pytest -m all
 
 workflows:
     test_my_app:
