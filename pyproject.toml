@@ -29,6 +29,7 @@ test = [
 ]
 
 dev = [
+  "grip",
   "johnnydep",
   "autopep8",
   "autoflake",
