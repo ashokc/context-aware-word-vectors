@@ -1,12 +1,10 @@
 # Context Aware Word Vectors
 
-This is a redo of the code in the repo [Bow to Bert](https://github.com/ashokc/Bow-to-Bert) to work with current versions of TensorFlow/Pytorch engaged by transformers from Hugginface.
+This is a redo of the code in the repo [Bow to Bert](https://github.com/ashokc/Bow-to-Bert) and the article [Bow to Bert](http://xplordat.com/2019/09/23/bow-to-bert/) to work with current versions of TensorFlow/Pytorch engaged by transformers from Huggingface.
 
-Evolution of word vectors from long, sparse, and one-hot to short, dense, and context sensitive
+The article details the evolution of word vectors from long, sparse, and one-hot to short, dense, and context sensitive over the years.
 
-This is the source code to go along with the blog article
-
-[Bow to Bert](http://xplordat.com/2019/09/23/bow-to-bert/)
+Here is updated result for BERT that shows that a word assumes a different numerical vector based on the context, much like the actual contextual meaning of the word.
 
 ![Context sensitive embeddings with BERT](./images/bert-similarity.jpg "Context sensitive embeddings with BERT")
 
