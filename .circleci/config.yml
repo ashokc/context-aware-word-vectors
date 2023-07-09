@@ -10,7 +10,7 @@ jobs:
 
             - run:
                   name: install dependencies
-                  command: pip install -r requirements/test-installed-requirements.txt
+                  command: pip install -r requirements/test-requirements.txt
 
             - run:
                   name: run tests
