@@ -89,9 +89,9 @@ legacy_tox_ini = """
         pylint
         flake8
     commands =
-        bash -c 'pylint src/context_aware_word_vectors -r n --output-format=parseable --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" --exit-zero --ignore-paths="src/context_aware_word_vectors/k" src/context_aware_word_vectors tests | tee validation/pylint-report.txt'
-        bash -c 'flake8 --format=pylint --exit-zero --ignore=E501,E800,W503,G001,E305,G004 --max-line-length=89 --extend-exclude="src/context_aware_word_vectors/k" src/context_aware_word_vectorstests | tee validation/flake8-report.txt'
-        bash -c 'mypy --exclude src/context_aware_word_vectors/k src | tee validation/mypy-new.log'
+        bash -c 'pylint src/context_aware_word_vectors -r n --output-format=parseable --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}" --exit-zero --ignore-paths="src/context_aware_word_vectors/bak" src/context_aware_word_vectors tests | tee validation/pylint-report.txt'
+        bash -c 'flake8 --format=pylint --exit-zero --ignore=E501,E800,W503,G001,E305,G004 --max-line-length=89 --extend-exclude="src/context_aware_word_vectors/bak" src/context_aware_word_vectorstests | tee validation/flake8-report.txt'
+        bash -c 'mypy --exclude src/context_aware_word_vectors/bak src | tee validation/mypy-new.log'
 """
 
 [tool.pytest.ini_options]
