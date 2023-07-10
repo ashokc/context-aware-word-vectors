@@ -1,3 +1,5 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ashokc/context-aware-word-vectors/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ashokc/context-aware-word-vectors/tree/main)
+
 # Context Aware Word Vectors
 
 This is a redo of the code in the repo [Bow to Bert](https://github.com/ashokc/Bow-to-Bert) and the article [Bow to Bert](http://xplordat.com/2019/09/23/bow-to-bert/) to work with current versions of TensorFlow/Pytorch engaged by transformers from Huggingface.
