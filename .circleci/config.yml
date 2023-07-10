@@ -1,0 +1,25 @@
+---
+version: 2.1
+
+jobs:
+    build_and_test: # this can be any name you choose
+        docker:
+            - image: circleci/python:3.10
+        steps:
+            - checkout
+
+            - run:
+                  name: install dependencies
+                  command: pip install -r requirements/test-requirements.txt
+
+            - run:
+                  name: run tests
+                  command: python -m pytest -m all --capture=tee-sys
+
+            - store_artifacts:
+                  path: coverage-reports
+
+workflows:
+    test_my_app:
+        jobs:
+            - build_and_test

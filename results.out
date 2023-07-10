@@ -1,0 +1,112 @@
+{
+  "arms": {
+    "sentences": {
+      "1": "germany sells arms to saudi arabia",
+      "2": "arms bend at the elbow",
+      "3": "wave your arms around"
+    },
+    "dot_product": [
+      0.378,
+      0.498,
+      0.422
+    ],
+    "euclidean_distance": [
+      1.115,
+      1.002,
+      1.075
+    ],
+    "manhattan_distance": [
+      24.678,
+      22.095,
+      23.414
+    ]
+  },
+  "key": {
+    "sentences": {
+      "1": "the key issue is quality not quantity",
+      "2": "the key broke in the lock",
+      "3": "i lost my key"
+    },
+    "dot_product": [
+      0.391,
+      0.577,
+      0.32
+    ],
+    "euclidean_distance": [
+      1.103,
+      0.92,
+      1.166
+    ],
+    "manhattan_distance": [
+      24.16,
+      20.287,
+      25.569
+    ]
+  },
+  "play": {
+    "sentences": {
+      "1": "record the play",
+      "2": "play the record",
+      "3": "play the game"
+    },
+    "dot_product": [
+      0.367,
+      0.502,
+      0.478
+    ],
+    "euclidean_distance": [
+      1.125,
+      0.998,
+      1.022
+    ],
+    "manhattan_distance": [
+      21.579,
+      17.93,
+      22.245
+    ]
+  },
+  "solution": {
+    "sentences": {
+      "1": "the problem has no solution",
+      "2": "boil the solution with salt",
+      "3": "heat the solution to 75 degrees"
+    },
+    "dot_product": [
+      0.448,
+      0.861,
+      0.538
+    ],
+    "euclidean_distance": [
+      1.051,
+      0.527,
+      0.961
+    ],
+    "manhattan_distance": [
+      23.227,
+      11.72,
+      21.353
+    ]
+  },
+  "subject": {
+    "sentences": {
+      "1": "all income is subject to tax",
+      "2": "economics is an arts subject",
+      "3": "i have one subject for credit"
+    },
+    "dot_product": [
+      0.332,
+      0.617,
+      0.347
+    ],
+    "euclidean_distance": [
+      1.156,
+      0.875,
+      1.143
+    ],
+    "manhattan_distance": [
+      25.288,
+      19.001,
+      24.267
+    ]
+  }
+}

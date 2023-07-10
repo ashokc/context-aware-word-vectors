@@ -1,0 +1,27 @@
+{
+  "arms": {
+    "1": "germany sells arms to saudi arabia",
+    "2": "arms bend at the elbow",
+    "3": "wave your arms around"
+  },
+  "key": {
+    "1": "the key issue is quality not quantity",
+    "2": "the key broke in the lock",
+    "3": "i lost my key"
+  },
+  "play": {
+    "1": "record the play",
+    "2": "play the record",
+    "3": "play the game"
+  },
+  "solution": {
+    "1": "the problem has no solution",
+    "2": "boil the solution with salt",
+    "3": "heat the solution to 75 degrees"
+  },
+  "subject": {
+    "1": "all income is subject to tax",
+    "2": "economics is an arts subject",
+    "3": "i have one subject for credit"
+  }
+}

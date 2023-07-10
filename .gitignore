@@ -4,13 +4,13 @@ __pycache__/
 *$py.class
 venv/
 dist/
-*.k*
-*.k*
-*/k/*
+*.bak*
+*/bak/*
 *.egg-info
 
 # Unit test / coverage reports
 htmlcov/
+coverage-reports/
 .tox/
 .coverage
 .coverage.*

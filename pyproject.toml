@@ -1,4 +1,5 @@
 [build-system]
+#requires = ["setuptools==59.6.0"]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
@@ -17,14 +18,19 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "tensorflow"
+  "pip-tools", "transformers","jsonlines", "torch", "tensorflow"
 ]
 
 [project.optional-dependencies]
-dev = [
+test = [
   "pytest",
   "pytest-cov",
   "coverage",
+]
+
+dev = [
+  "grip",
+  "johnnydep",
   "autopep8",
   "autoflake",
   "black",
@@ -39,10 +45,10 @@ dev = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/ashokc/contextual-words/browse"
+"Homepage" = "https://github.com/ashokc/context-aware-word-vectors"
 
 [tool.pip-tools]
-generate-hashes = true
+generate-hashes = false
 
 
 [tool.autopep8]
@@ -89,27 +95,18 @@ legacy_tox_ini = """
 """
 
 [tool.pytest.ini_options]
-addopts = " --cov src --cov-report xml:coverage-reports/coverage.xml --cov-fail-under 0"
+addopts = " --cov src --cov-report xml:coverage-reports/coverage.xml --cov-report html:coverage-reports/cov-html --cov-fail-under 0"
 pythonpath = [ "src" ]
 markers = [
-    "validation: Testing manifest validation (deselect with '-m \"not validation\"')",
-    "revisions: Testing cutting revisions",
-    "properties: Testing environment properties",
-    "deploy_vql: Testing vql deployment",
-    "scheduler_jobs: Testing scheduler deployment",
-    "generate_coverage: The full end-2-end testing to generate coverage metrics"
+    "pt: Test pytorch framework",
+    "tf: Test tensorflow framework",
+    "all: All - To generate coverage metrics"
 ]
 
 [tool.coverage.run]
-#omit = ["tests/*.py", "config.py", "exceptions.py", "proxy.py"]
-#omit = ["tests/*.py", "src/context_aware_word_vectors/generate_full_manifest.py"]
-#Remove tests/*. The config above for pytest specifies "src" for cov & we have "src" as the source in sonar-project.properties
-omit = ["**/generate_full_manifest.py"]
-#omit = ["src/context_aware_word_vectors/generate_full_manifest.py"] # Doing this in sonar-project.properties
+omit = []
 
 [tool.coverage.report]
-omit = ["**/generate_full_manifest.py"]
-#omit = ["src/new_sm_deployments/generate_full_manifest.py"] # Doing this in sonar-project.properties
 fail_under = 0
 exclude_lines = [
     'if TYPE_CHECKING:',
@@ -117,7 +114,6 @@ exclude_lines = [
 ]
 
 [tool.mypy]
-#mypy_path = "new_sm_deployments"
 pretty = true
 disallow_any_unimported = true
 disallow_untyped_defs = true

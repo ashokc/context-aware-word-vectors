@@ -3,8 +3,8 @@
 input_file=./bert_sentences.txt
 output_file=./bertWordVectors.jsonl
 
-BERT_BASE_DIR="$PRE_TRAINED_HOME/bert/uncased_L-12_H-768_A-12"
-bert_master=src/context_aware_word_vectors/bert_master
+BERT_BASE_DIR="$PRE_TRAINED_HOME"/BERT/uncased_L-12_H-768_A-12
+bert_master=src/context_aware_word_vectors/bert-master
 
 venv/context-aware-word-vectors/bin/python "$bert_master"/extract_features.py \
   --input_file="$input_file" \
